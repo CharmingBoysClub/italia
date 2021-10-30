@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(1440,1024);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/意大利.png");
+        app.stage.addChild(bg);
+        var shoe = new PIXI.Sprite.fromImage("res/高跟鞋.png");
+        app.stage.addChild(shoe);
+        shoe.x = 450;
+        shoe.y = 30;
+        
+        var bottomShoe = new PIXI.Sprite.fromImage("res/高跟鞋.png");
+        app.stage.addChild(bottomShoe);
+        bottomShoe.x = 90;
+        bottomShoe.y = 920;
+        bottomShoe.visible = false;
+        
+        shoe.interactive = true;
+        shoe.on("click",collect);
+        function collect(){
+        	bottomShoe.visible = true;
+        }
+        
+        
+        
+    </script>
+</body>
+</html>
